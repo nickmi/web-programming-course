@@ -1,0 +1,99 @@
+<html>
+<head>
+<meta charset= utf-8>
+<style>
+
+h1.Title{
+
+  font: 50px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-align:  left;
+}
+
+#adressform{  font: 15px "Lucida Sans Unicode", "Lucida Grande", sans-serif; text-align: left;}
+
+
+#DeliveryChoice{font: 12px "Lucida Sans Unicode", "Lucida Grande", sans-serif;text-align: left;}
+
+p.title2{
+  font: 20px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-align: left;
+  border-bottom: 6px solid black;
+}
+
+.buttons{  width: 180 !important;font: 20px "Lucida Sans Unicode", "Lucida Grande", sans-serif;text-align: center;
+}
+
+.titloi{
+font: 15px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.input{
+  font: 15px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-align: left;
+}
+
+</style>
+</head>
+<body>
+
+<h1 class="Title" >Φόρμα έκδοσης πιστοποιητικου</h1>
+<p class="Title2">Στοιχεια φοιτητη</p>
+<form id ="adressform" action="">
+Ονοματεπωνυμο:<br>
+<input type="text" name="firstname" class="input"id="FirstName" value="">
+
+  <input type="text"  name="lastname"class="input" id="LastName"value="">
+  <br>
+  Στοιχεια διευθηνσης:<br>
+  <input type="text" name="Adress" class="input" id="Adress" value="California" size="42">
+  <br>
+  <input type="text" name="Adress" class="input" id="AdressCity" value="Athens">
+  <input type="text" name="Adress" class="input" id="AdressPost" value="19400">
+  <br>Στοιχεια Επικοινωνιας:<br>
+  <input type="text" name="PhoneNumber" class="input"id="PhoneNumber" value="+30...">
+  <input type="text" name="Email" class="input"id="email" value="nistazw@gmail.com">
+  <br>AM:<br>
+  <input type="text" name="AM" class="input" id="email" value="2234454" size="42">
+  <br>
+  Ετος Σπουδών:<br>
+  <form id="RoomChoice">
+    <input type="radio" name="Year" value="male" checked> Α
+    <input type="radio" name="Year" value="female"> B
+    <input type="radio" name="Year" value="other"> Γ
+    <input type="radio" name="Year" value="other"> Δ
+    <input type="radio" name="Year" value="other"> Ε+
+    <input type="radio" name="Year" value="other"> ΜΦ
+  </form>
+  </form>
+
+
+<p class="Title2">Πιστοποιητικο</p>
+<title="Ειδος πιστοποιητικου" class="titloi">Ειδος πιστοποιητικου:</title><br>
+    <select name="cars" style="width:400px; ">
+    <option value="CertificateType" >πιστ1</option>
+    <option value="CertificateType">πιστ2</option>
+    <option value="CertificateType">πιστ3</option>
+    <option value="CertificateType">πιστ4</option>
+  </select>
+  <br><br>
+
+<title="Τροπος παραλαβης πιστοποιητικου" class="titloi">Τροπος παραλαβης πιστοποιητικου:</title><br>
+<div id="DeliveryChoice">
+  <input type="radio" name="CertificateDelivery" value="male" checked> Παραλαβη απο γραμματεια<br>
+  <input type="radio" name="CertificateDelivery" value="female"> Αποστολη διευθηνση κατοικιας<br>
+  <br>
+</div
+
+<div id="DeliveryDate">
+  <title="Ημερομηνια Παραλαβης" class="titloi">Ημερομηνια Παραλαβης</title><br>
+  <input type="date" id="arrival" name="Arrival"><br>
+
+</div>
+
+
+<div class="buttons"><br>
+<input type="button" class="buttons" value="Υποβολη">
+</div>
+
+</body>
+</html>

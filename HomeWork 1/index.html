@@ -1,0 +1,140 @@
+<html>
+<head>
+  <style>
+
+h1.Title{
+
+  font: 50px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-align: center;
+
+}
+
+
+#FirstName,#LastName,#Adress,#PhoneNumber,#email,#arrival,#departure,#adressform,#CardName,#CardNum{
+
+  font: 15px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-align: center;
+}
+
+p.RoomChoice,p.RoomEquipement,p.GuestInfo,p.ArrivalDeparture,p.PaymentMethod,p.AvailableHotels{
+  font: 20px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-align: center;
+}
+
+div.card{
+
+  font: 15px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-align: center;
+
+}
+#RoomChoice,#RoomEquipement,#ReservationDate,#HotelChoice,#PaymentMethod{
+
+  font: 15px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-align: center;
+  }
+
+
+.buttons{
+
+
+  font: 15px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+
+
+     text-align: center;
+
+
+
+
+}
+  </style>
+
+</head>
+<body>
+
+<h1 class="Title" >Room Reservation</h1>
+<p class="GuestInfo">Guest Information</p>
+<form id ="adressform" action="">
+  Full Name:<br>
+<input type="text" name="firstname" id="FirstName" value="Mickey">
+
+  <input type="text"  name="lastname" id="LastName"value="Mouse">
+  <br>
+  Adress:<br>
+  <input type="text" name="Adress"  id="Adress" value="California">
+  <br>
+  Phone Number:<br>
+  <input type="text" name="PhoneNumber" id="PhoneNumber" value="+30...">
+  <br>
+  Email:<br>
+  <input type="text" name="email" id="email" value="">
+  <br>
+</form>
+
+
+<p class="AvailableHotels">Available Hotels</p>
+<form id="HotelChoice" class="HotelChoice" action="">
+  <select name="cars">
+    <option value="Hotel1" id="Hotel1">Hotel1</option>
+    <option value="Hotel2">Hotel2</option>
+    <option value="Hotel3">Hotel3</option>
+    <option value="Hotel4">Hotel4</option>
+  </select>
+  <br><br>
+</form>
+
+<p class="RoomChoice">Room Choice</p>
+<form id="RoomChoice">
+  <input type="radio" name="RoomChoice" value="male" checked> Single Bed<br>
+  <input type="radio" name="RoomChoice" value="male"> Double Bed<br>
+  <input type="radio" name="RoomChoice" value="male"> Triple Bed<br>
+</form>
+
+<p class="RoomEquipement">Room Equipement</p>
+<form id="RoomEquipement">
+  <input type="checkbox" name="RoomEquip1" value="tv" checked> TV<br>
+  <input type="checkbox" name="RoomEquip2" value="AC"> AC<br>
+  <input type="checkbox" name="RoomEquip3" value="Oven"> Oven<br>
+</form>
+
+
+<p class="ArrivalDeparture">Arrival and Departure</p>
+<form id="ReservationDate">
+  Arrival:<br>
+  <input type="date" id="arrival" name="Arrival"><br>
+  Departure:<br>
+  <input type="date" id="departure" name="Departure"><br>
+</form>
+
+<p class="PaymentMethod">Payment Method</p>
+<form id="PaymentMethod">
+  <input type="radio" name="PaymentMethod" value="Bank"> Bank Transfer(SEPA)<br>
+  <input type="radio" name="PaymentMethod" value="Check"> Cashiers Check<br>
+  <input type="radio" name="PaymentMethod" value="CreditCard"> Credit Card<br>
+  <div class="card">
+  <input type="radio"  class="card" name="PaymentMethod" value="Card"> MasterCard<br>
+  <input type="radio"  class="card" name="PaymentMethod" value="Card"> Visa<br>
+  <input type="radio"  class="card" name="PaymentMethod" value="Card"> AmericanExpress<br>
+  Card Name:<br>
+  <input type="text" name="CardName" id="CardName" value="">
+  <br>
+  Card Number:<br>
+    <input type="text"  name="CardNum" id="CardNum"value="">
+    <br>
+
+</div>
+</form>
+
+
+
+
+
+<div class="buttons">
+<input type="button" class="buttons" value="Submit">
+<input type="button" class="buttons" value="Clear">
+
+
+</div>
+
+</body>
+</html>
