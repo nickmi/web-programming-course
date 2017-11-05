@@ -3,8 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+
+
+        #circle { width : 60px;
+            height : 60px;
+            border-radius : 30px;
+            position : absolute;
+            top : 50px;
+            left : 50px;
+            background-color : red;
+
+        }
+
+
+
+
+    </style>
+
+
+    <script>
+        var colourArray = ["blue",
+            "black",
+            "red",
+            "purple",
+            "green",
+            "beige",
+            "navy",
+            "teal",
+            "aqua",
+            "orange",
+            "aliceblue",
+            "aquamarine",
+            "burlywood",
+            "crimson",
+            "deeppink",
+            "khaki",
+            "seagreen"];
+
+
+        function changeColorAndLocation() {
+            var circle=document.getElementById("circle");
+            circle.style.background=randColors();
+            circle.style.top=""+randLocation(2)+"px";
+            circle.style.left=""+randLocation(1)+"px";
+
+        }
+
+        function randColors() {
+
+          var randValue =  Math.floor(Math.random() * 16);
+          return colourArray[randValue];
+        }
+
+        function randLocation( choise){
+                if (choise==1) {
+                    var temp = document.getElementById("canvas").getBoundingClientRect().left;
+                    var randLocation = Math.floor(Math.random() * 390) + (temp);
+                }
+
+                else if (choise==2){
+
+                    var temp = document.getElementById("canvas").getBoundingClientRect().top;
+                    var randLocation = Math.floor(Math.random() * 390) + (temp);
+
+
+                }
+
+            return randLocation;
+
+
+
+
+        }
+
+
+
+        function circleStartPosition () {
+
+            document.getElementById("circle").style.left=""+document.getElementById("canvas").getBoundingClientRect().left+"px";
+
+
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+
+
 </head>
-<body>
+<body onload="circleStartPosition()">
+
+<canvas id="circle" onclick="changeColorAndLocation()">
+</canvas>
+
+<canvas id="canvas"  width="450" height="450" style="border:1px solid #000000;  padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 450px;  ">
+</canvas>
 
 </body>
 </html>
