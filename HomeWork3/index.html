@@ -18,6 +18,7 @@
 
         }
 
+        
     </style>
 
 
@@ -49,11 +50,37 @@
 
         }
 
+
+        function resizeTracker() {
+            var temp = document.getElementById("canvas").getBoundingClientRect().left;
+
+            var temp2=document.getElementById("circle").getBoundingClientRect().left;
+
+
+            if(temp2<temp){
+
+                var circle = document.getElementById("circle");
+
+                circle.style.left = "" + temp + "px";
+
+            }
+
+            else if (temp2>temp+360){
+
+                var circle = document.getElementById("circle");
+                circle.style.left = "" + temp+200 + "px";
+            }
+
+
+        }
+
         function randColors() {
 
             var randValue = Math.floor(Math.random() * 16);
             return colourArray[randValue];
         }
+
+
 
         function randLocation(choise) {
             if (choise == 1) {
@@ -79,14 +106,25 @@
         }
 
 
+
+        function textResizeProtector(){
+
+            document.getElementsByClassName("text").style.left = "" + document.getElementsByClassName("canvas").getBoundingClientRect().left + "px";
+
+
+
+        }
+
+
     </script>
 
 
 </head>
-<body onload="circleStartPosition()">
+<body onload="circleStartPosition()", onresize="resizeTracker()">
 
 <canvas id="circle" onclick="changeColorAndLocation()">
 </canvas>
+
 
 <canvas id="canvas" width="450" height="450" style="border:1px solid #000000;  padding-left: 0;
     padding-right: 0;
