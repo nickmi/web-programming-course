@@ -18,7 +18,7 @@
 
         }
 
-        
+
     </style>
 
 
@@ -52,23 +52,23 @@
 
 
         function resizeTracker() {
-            var temp = document.getElementById("canvas").getBoundingClientRect().left;
+            var circle = document.getElementById("circle");
+            var canvas = document.getElementById("canvas");
 
-            var temp2=document.getElementById("circle").getBoundingClientRect().left;
+            var canvasLocation = canvas.getBoundingClientRect().left;
+            var circleLocation = circle.getBoundingClientRect().left;
 
 
-            if(temp2<temp){
+            if (circleLocation < canvasLocation) {
 
-                var circle = document.getElementById("circle");
 
-                circle.style.left = "" + temp + "px";
+                circle.style.left = "" + canvasLocation + "px";
 
             }
 
-            else if (temp2>temp+360){
+            else if (circleLocation > canvasLocation + 360) {
 
-                var circle = document.getElementById("circle");
-                circle.style.left = "" + temp+200 + "px";
+                circle.style.left = "" + canvasLocation + 50 + "px";
             }
 
 
@@ -76,27 +76,24 @@
 
         function randColors() {
 
-            var randValue = Math.floor(Math.random() * 16);
-            return colourArray[randValue];
+            return colourArray[Math.floor(Math.random() * 16)];
         }
-
 
 
         function randLocation(choise) {
             if (choise == 1) {
-                var temp = document.getElementById("canvas").getBoundingClientRect().left;
-                var randLocation = Math.floor(Math.random() * 390) + (temp);
+                var canvasLocation = document.getElementById("canvas").getBoundingClientRect().left;
+                var randLocation = Math.floor(Math.random() * 390) + (canvasLocation);
             }
 
             else if (choise == 2) {
 
-                var temp = document.getElementById("canvas").getBoundingClientRect().top;
-                var randLocation = Math.floor(Math.random() * 390) + (temp);
+                var canvasLocation = document.getElementById("canvas").getBoundingClientRect().top;
+                var randLocation = Math.floor(Math.random() * 390) + (canvasLocation);
 
             }
 
             return randLocation;
-
 
         }
 
@@ -106,21 +103,11 @@
         }
 
 
-
-        function textResizeProtector(){
-
-            document.getElementsByClassName("text").style.left = "" + document.getElementsByClassName("canvas").getBoundingClientRect().left + "px";
-
-
-
-        }
-
-
     </script>
 
 
 </head>
-<body onload="circleStartPosition()", onresize="resizeTracker()">
+<body onload="circleStartPosition()" , onresize="resizeTracker()">
 
 <canvas id="circle" onclick="changeColorAndLocation()">
 </canvas>
