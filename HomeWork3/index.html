@@ -18,6 +18,18 @@
 
         }
 
+        body {
+            background-image: url('les-paves.jpg');
+            background-repeat: repeat;
+            background-attachment: scroll;
+            background-position: center;
+            border-radius: 100%
+
+        }
+
+
+
+
 
     </style>
 
@@ -45,8 +57,8 @@
         function changeColorAndLocation() {
             var circle = document.getElementById("circle");
             circle.style.background = randColors();
-            circle.style.top = "" + randLocation(2) + "px";
-            circle.style.left = "" + randLocation(1) + "px";
+            circle.style.top = "" + randLocation("top") + "px";
+            circle.style.left = "" + randLocation("left") + "px";
 
         }
 
@@ -66,9 +78,9 @@
 
             }
 
-            else if (circleLocation > canvasLocation + 360) {
+            else if (circleLocation > (canvasLocation + 390) ) {
 
-                circle.style.left = "" + canvasLocation + 50 + "px";
+                circle.style.left = "" + (canvasLocation + 390) + "px";
             }
 
 
@@ -80,21 +92,22 @@
         }
 
 
-        function randLocation(choise) {
-            if (choise == 1) {
-                var canvasLocation = document.getElementById("canvas").getBoundingClientRect().left;
-                var randLocation = Math.floor(Math.random() * 390) + (canvasLocation);
+        function randLocation(choice) {
+            var randLocation;
+
+            if (choice === "left") {
+                var canvasLocationLeft = document.getElementById("canvas").getBoundingClientRect().left;
+                 randLocation = Math.floor(Math.random() * 390) + (canvasLocationLeft);
             }
 
-            else if (choise == 2) {
+            else if (choice === "top") {
 
-                var canvasLocation = document.getElementById("canvas").getBoundingClientRect().top;
-                var randLocation = Math.floor(Math.random() * 390) + (canvasLocation);
+                var canvasLocationTop = document.getElementById("canvas").getBoundingClientRect().top;
+                 randLocation = Math.floor(Math.random() * 390) + (canvasLocationTop);
 
             }
 
             return randLocation;
-
         }
 
         function circleStartPosition() {
@@ -107,19 +120,19 @@
 
 
 </head>
-<body onload="circleStartPosition()" , onresize="resizeTracker()">
+<body onload="circleStartPosition()"  onresize="resizeTracker()">
 
 <canvas id="circle" onclick="changeColorAndLocation()">
 </canvas>
 
 
-<canvas id="canvas" width="450" height="450" style="border:1px solid #000000;  padding-left: 0;
+<canvas id="canvas" width="450" height="450" style="border:5px transparent;  padding-left: 0;
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
     display: block;
     width: 450px;
-    background-color: antiquewhite;
+    background-color: transparent;
 ">
 </canvas>
 
