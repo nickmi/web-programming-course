@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Random French Circle</title>
 
     <style>
 
@@ -19,17 +19,9 @@
         }
 
         body {
-            background-image: url('les-paves.jpg');
-            background-repeat: repeat;
-            background-attachment: scroll;
-            background-position: center;
+            background: url('les-paves.jpg') repeat scroll center;
             border-radius: 100%
-
         }
-
-
-
-
 
     </style>
 
@@ -73,17 +65,13 @@
 
             if (circleLocation < canvasLocation) {
 
-
                 circle.style.left = "" + canvasLocation + "px";
-
             }
 
             else if (circleLocation > (canvasLocation + 390) ) {
 
                 circle.style.left = "" + (canvasLocation + 390) + "px";
             }
-
-
         }
 
         function randColors() {
