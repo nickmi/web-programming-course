@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <title>5η Εργαστηριακή Άσκηση</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="myscripts.js"></script>
+  
+</head>
+
+<body onload="hideForm()">
+
+	<h1>Αίτηση Έκδοσης Πιστοποιητικού</h1>
+	<hr/>
+	<form action="" id="form1">
+
+<div id="form_container_1">
+	<h2>Στοιχεία Φοιτητή</h2>
+	<div class="form-prompt">Συμπληρώστε τα στοιχεία σας με ελληνικούς χαρακτήρες</div>
+	<table>
+	  <tr>
+		<td colspan="2" class="row-heading">Ονοματεπώνυμο</td>
+	  </tr>
+	  <tr>
+		<td><input type="text"  name="first_name" id="first_name" value="" placeholder="Όνομα"></td>
+		<td><input type="text" name="last_name" id="last_name" value="" placeholder="Επώνυμο"></td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="error" id="errName1">Παρακαλώ συμπληρώστε όλα τα πεδία του ονοματεπώνυμου</td>
+	  </tr>
+	  <tr>
+		<td	 colspan="2" class="row-heading">Στοιχεία Διεύθυνσης</td>
+	  </tr>
+	  <tr>
+		<td colspan="2"><input type="text" name="street" id="street" value="" placeholder="Οδός και αριθμός"></td>
+	  </tr>
+	  <tr>
+		<td><input type="text" name="city" id="city" value="" placeholder="Πόλη"></td>
+		<td><input type="text" name="zipcode" id="zipcode" value="" placeholder="Ταχυδρομικός κώδικας"></td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="error" id="errAddress1">Παρακαλώ συμπληρώστε όλα τα πεδία της διεύθυνσης</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="error" id="errAddress2">Παρακαλώ εισάγετε έναν έγκυρο ταχυδρομικό κώδικα</td>
+	  </tr>
+	  <tr>
+		<td	 colspan="2" class="row-heading">Στοιχεία Επικοινωνίας</td>
+	  </tr>
+	  <tr>
+		<td><input type="text" name="phone_number" id="phone_number" value="" placeholder="Τηλέφωνο επικοινωνίας"></td>
+		<td><input type="text" name="email" id="email" value="" placeholder="Email επικοινωνίας"></td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="error" id="errContact1">Παρακαλώ συμπληρώστε όλα τα πεδία της επικοινωνίας</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="error" id="errContact2">Παρακαλώ εισάγετε έναν έγκυρο τηλεφωνικό αριθμό</td>
+	  </tr>	  
+	  <tr>
+		<td colspan="2" class="error" id="errContact3">Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email</td>
+	  </tr>	 	  
+	  
+	  <tr>
+		<td class="row-heading">Έτος Σπουδών</td>
+		<td class="row-heading">Αριθμός Μητρώου</td>
+	  </tr>
+	  <tr>
+		<td>
+			<select id="etos_spoudon">
+				<option value="-1">Επιλέξτε έτος σπουδών</option>
+				<option value="1">Α' έτος</option>
+				<option value="2">Β' έτος</option>
+				<option value="3">Γ' έτος</option>
+				<option value="4">Δ' έτος</option>
+				<option value="5">Ε' έτος</option>
+				<option value="6">Ε+ έτος</option>
+				<option value="7">ΜΦ</option>
+			</select>
+		<td><input type="text" name="academic_id" id="academic_id" value="" placeholder="Αριθμός μητρώου"></td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="error" id="errEtosSpoudon">Παρακαλώ επιλέξτε ένα έτος σπουδών</td>
+	  </tr>	
+	  <tr>
+		<td colspan="2" class="error" id="errAM1">Παρακαλώ συμπληρώστε τον αριθμό μητρώου σας</td>
+	  </tr>		
+	  <tr>
+		<td colspan="2" class="error" id="errAM2">Παρακαλώ εισάγετε έναν έγκυρο αριθμό μητρώου</td>
+	  </tr>		  
+	  <tr>
+		<td colspan="2"><div class="link right" id="linkNext" onclick="checkForm()">Επόμενο</div></td>
+	  </tr>
+	</table>
+</div>
+
+
+<div id="form_container_2">
+	<table>
+		<tr>
+			<td colspan="2" class="link left" id="linkBack" onclick="">Πίσω</td>
+		</tr>
+	</table>
+	<h2>Στοιχεία Πιστοποιητικού</h2>
+	<div class="form-prompt">Επιλέξτε πιστοποιητικό και τρόπο παραλαβής</div>
+	<table>
+		<tr>
+			<td colspan="2" class="row-heading">Είδος πιστοποιητικού</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<select>
+					<option value="-1">Επιλέξτε είδος πιστοποιητικού</option>
+					<option value="1">Πιστοποιητικό Α</option>
+					<option value="2">Πιστοποιητικό Β</option>
+					<option value="3">Πιστοποιητικό Γ</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="error" id="errCertificate1">Παρακαλώ επιλέξτε ένα είδος πιστοποιητικού</td>
+		</tr>		
+		<tr>
+			<td class="row-heading" colspan="2">Τρόπος παραλαβής</td>
+		</tr>
+		<tr>
+			<td colspan="2" id="lista">
+				<select>
+					<option value="-1">Επιλέξτε τρόπο παραλαβής</option>
+					<option value="1">Παραλαβή από την γραμματεία</option>
+					<option value="2">Αποστολή στη διεύθυνση κατοικίας</option>
+				</select>
+			</td>
+		</tr>	
+		<tr>
+			<td colspan="2" class="error" id="errCertificate2">Παρακαλώ επιλέξτε έναν τρόπο παραλαβής</td>
+		</tr>		
+		<tr>
+			<td colspan="2">
+				<div class="button" id="btnSubmit" onclick="checkForm2()">Υποβολή</div>
+			</td>
+		</tr>
+	</table>	
+</div>
+	
+	
+	
+	</form>
+
+
+</body>
+</html>
