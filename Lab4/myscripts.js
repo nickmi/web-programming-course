@@ -1,60 +1,17 @@
-
 function checkForm() {
 
-
-
-
-
     var x = document.getElementById("form1").elements;
 
+    if( checkName(x)==true & checkAdress(x)==true & checkPhoneAndMail(x)==true & checkAmAndYear(x)==true ){
 
-    checkName(x);
- // checkAdress(x);
-    checkPhoneAndMail(x);
-   // checkAmAndYear(x);
+        document.getElementById("form_container_2").style.display = "block";
+        hideForm2();
 
-
-
-
-
-
-
-
-
-    // if (flag === true) {
-    //
-    //     document.getElementById("form_container_2").style.display = "block";
-    //     hideForm2();
-    //
-    //
-    // }
-
-
+    }
 }
 
 
-function checkForm2(){
 
-    var x = document.getElementById("form1").elements;
-
-
-
-
-    if (x[9].value === -1) {
-
-
-        document.getElementById("errCertificate1").style.display = "block";
-
-
-    }
-
-
-    if (x[10].value===-1){
-
-        document.getElementById("errCertificate2").style.display = "block";
-    }
-
-}
 
 
 function hideForm() {
@@ -79,67 +36,84 @@ function hideForm2() {
     document.getElementById("errCertificate2").style.display = "none";
 }
 
-function ValidateEmail(inputText)
-{
+function validateEmail(inputText) {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if(inputText.match(mailformat))
-    {
+    if (inputText.match(mailformat)) {
 
         return true;
     }
-    else
-    {
-        alert("You have entered an invalid email address!");
+    else {
         return false;
     }
 }
 
 
-function phonenumber(inputtxt)
-{
+function validatePhoneNumber(inputtxt) {
     var phoneno = /^\d{10}$/;
-    if((inputtxt.match(phoneno)))
-    {
+    if ((inputtxt.match(phoneno))) {
         return true;
     }
-    else
-    {
+    else {
 
         return false;
     }
 }
 
-function validatePostalCode(phone) {
-    var re=phone.match(/^\d{5}$/);
-    return re;
+
+function validatePostalCode(inputtxt) {
+    var phoneno = /^\d{5}$/;
+    if ((inputtxt.match(phoneno))) {
+        return true;
+    }
+    else {
+
+        return false;
+    }
 }
 
 
-function validateAM(am) {
-    var re=am.match(/^(\d{6},)*\d{6}$/);
+function validateAM(inputtxt) {
+    var phoneno = /^\d{6}$/;
+    if ((inputtxt.match(phoneno))) {
+        return true;
+    }
+    else {
 
-    return re;
+        return false;
+    }
 }
 
+function checkForm2() {
 
-function checkName(x){
+    var x = document.getElementById("form1").elements;
+
+
+    if (x[9].value == -1) {
+
+
+        document.getElementById("errCertificate1").style.display = "block";
+        
+    }
+
+    if (x[10].value == -1) {
+
+        document.getElementById("errCertificate2").style.display = "block";
+    }
+
+}
+function checkName(x) {
 
     if (x[0].value == "" || x[1].value == "") {
 
 
         document.getElementById("errName1").style.display = "block";
-        flag = false
+        return false;
 
     }
-
-
-
+else return true;
 
 }
-
-function checkAdress(x){
-
-
+function checkAdress(x) {
 
 
     if ((x[2].value == "" || x[3].value == "" || [4].value == "") === true) {
@@ -147,40 +121,36 @@ function checkAdress(x){
 
         document.getElementById("errAddress1").style.display = "block";
 
-        if(validatePostalCode([4].value)==false){
+        if (validatePostalCode(x[4].value) == false) {
 
             document.getElementById("errAddress2").style.display = "block";
 
 
         }
+
+        return false;
     }
 
 
+    if (validatePostalCode(x[4].value) == false) {
 
+        document.getElementById("errAddress2").style.display = "block";
 
-
-
-
-
-
-
-
+        return false;
+    }
+    else return true;
 
 
 }
+function checkPhoneAndMail(x) {
 
-function checkPhoneAndMail(x){
-
-
-
-alert(x[6].value)
 
     if (x[5].value == "" || x[6].value == "") {
 
         document.getElementById("errContact1").style.display = "block";
 
 
-        if (ValidateEmail(x[6].value) == false) {
+        if (validateEmail(x[6].value) == false) {
 
             document.getElementById("errContact3").style.display = "block";
 
@@ -188,73 +158,57 @@ alert(x[6].value)
         }
 
 
-        if (phonenumber(x[5].value) == false) {
+        if (validatePhoneNumber(x[5].value) == false) {
 
             document.getElementById("errContact2").style.display = "block";
 
 
         }
-
-
+        return false;
     }
 
 
-    if (ValidateEmail(x[6].value) == false) {
+    if (validateEmail(x[6].value) == false) {
 
         document.getElementById("errContact3").style.display = "block";
 
-
+        return false;
     }
 
 
-
-
-    if (phonenumber(x[5].value) == false) {
+    if (validatePhoneNumber(x[5].value) == false) {
 
         document.getElementById("errContact2").style.display = "block";
 
+        return false;
 
     }
 
+    else return true;
 
 
-    }
+}
+function checkAmAndYear(x) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-function checkAmAndYear(x){
-
-
-
-alert(x[8].value);
 
     if (x[7].value == -1) {
         document.getElementById("errEtosSpoudon").style.display = "block";
+        return false;
     }
 
 
+    if (x[8].value == "") {
+        document.getElementById("errAM1").style.display = "block";
+        return false;
 
-        if (x[8].value == "") {
-            document.getElementById("errAM1").style.display = "block";
-
-        }
+    }
 
 
     if (validateAM(x[8].value) == false) {
 
         document.getElementById("errAM2").style.display = "block";
-
+        return false;
     }
-
+        else return true;
 
 }
