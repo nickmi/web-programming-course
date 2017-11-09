@@ -10,7 +10,19 @@ function checkForm() {
     }
 }
 
+function successFullTest(){
 
+    document.getElementById("errName1").style.display = "none";
+    document.getElementById("errAddress1").style.display = "none";
+    document.getElementById("errAddress2").style.display = "none";
+    document.getElementById("errContact1").style.display = "none";
+    document.getElementById("errContact2").style.display = "none";
+    document.getElementById("errContact3").style.display = "none";
+    document.getElementById("errEtosSpoudon").style.display = "none";
+    document.getElementById("errAM1").style.display = "none";
+    document.getElementById("errAM2").style.display = "none";
+
+}
 
 
 
