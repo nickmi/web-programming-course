@@ -92,7 +92,7 @@ function checkForm2() {
 
 
         document.getElementById("errCertificate1").style.display = "block";
-        
+
     }
 
     if (x[10].value == -1) {
