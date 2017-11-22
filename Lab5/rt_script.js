@@ -43,20 +43,24 @@ $(function () {
     circleResize();
 
     $("#shape").click(function () {
-        var width = window.innerWidth;
-        var height = window.innerHeight;
 
-        var RandLeft = 1 + Math.floor(Math.random() * (width - 60));
-        var RandTop = 1 + Math.floor(Math.random() * (height - 300));
+        for (i=0;i<1000;i++)
+        {
+            var width = window.innerWidth;
+            var height = window.innerHeight;
 
-        $("#shape").animate({left: RandLeft + 'px'});
-        $("#shape").animate({top: RandTop + 'px'});
-        $("#shape").animate({borderRadius: "50%"});
-        $("#shape").css({backgroundColor: selectColor()});
-        circleResize();
-        start = new Date().getTime();
-        attempts += 1
+            var RandLeft = 1 + Math.floor(Math.random() * (width - 60));
+            var RandTop = 1 + Math.floor(Math.random() * (height - 300));
 
+            $("#shape").animate({left: RandLeft + 'px'});
+            $("#shape").animate({top: RandTop + 'px'});
+            $("#shape").animate({borderRadius: "50%"});
+
+            $("#shape").css({backgroundColor: selectColor()});
+            circleResize();
+            start = new Date().getTime();
+            //attempts += 1
+        }
 
     });
 

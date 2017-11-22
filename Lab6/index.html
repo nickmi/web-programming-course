@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CV creator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+
+        $(function () {
+
+
+
+$('#Firstname').keypress(function() {
+                var k = $('#Firstname').val();
+                $('#Firstname2').text(k);
+
+            });
+
+            $('#lastname').keypress(function() {
+                var k = $('#lastname').val();
+                $('#lastname2').text(k);
+
+            });
+
+            $('#Profession').keypress(function() {
+                var k = $('#Profession').val();
+                $('#Profession2').text(k);
+
+            });
+
+
+            $('#livinglocation').keypress(function() {
+                var k = $('#livinglocation').val();
+                $('#livinglocation2').text(k);
+
+            });
+
+
+            $('#email').keypress(function() {
+                var k = $('#email').val();
+                $('#email2').text(k);
+
+            });
+
+
+
+
+
+        });
+
+
+    </script>
+
+
+
+
+</head>
+<body>
+
+<div class="col-sm-6">
+    <h2>CV Creator</h2>
+    <form>
+        <div class="form-group">
+            <label for="Firstname">First Name:</label>
+            <input type="text" class="form-control" id="Firstname" placeholder="Enter first name" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last Name:</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Enter last name" name="email">
+        </div>
+
+
+        <div class="form-group">
+            <label for="Profession">Profession:</label>
+            <input type="text" class="form-control" id="Profession" placeholder="Enter Profession" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="livinglocation">Home City:</label>
+            <input type="text" class="form-control" id="livinglocation" placeholder="Enter City" name="email">
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        </div>
+
+
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="number" class="form-control" id="phone" placeholder="Enter phone number" name="email">
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="exampleTextarea">Education</label>
+            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+        </div>
+
+
+
+    </form>
+</div>
+
+
+
+<div class="col-sm-6">
+    <h2>Curriculum vitae</h2>
+    <form >
+        <div class="form-group">
+            <label for="Firstname2">First Name:</label>
+            <div id="Firstname2"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname2">Last Name:</label>
+            <div id="lastname2"></div>
+
+        </div>
+
+
+        <div class="form-group">
+            <label for="Profession2">Profession:</label>
+            <div id="Profession2"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="livinglocation2">Home City:</label>
+            <div id="livinglocation2"></div>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            <label for="email2">Email:</label>
+            <div id="email2"></div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="phone2">Phone Number:</label>
+            <div id="phone2"></div>
+        </div>
+
+
+
+    </form>
+</div>
+
+
+
+</body>
+</html>
