@@ -1,119 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>CV creator</title>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="my_jquery_functions.js"></script>
-
-
-
-
-
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        
+        #map {
+            height: 70%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="map"></div>
 
-    <div class="col-sm-6">
-        <h2>CV Creator</h2>
-        <form action="/action_page.php" method="POST" id="form1">
-            <div class="form-group">
-                <label for="Firstname">First Name:</label>
-                <input type="text" class="form-control" id="Firstname" placeholder="Enter first name" name="firstname">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-4" style="background-color:rgb(249,249,249);">
+                <h4>ID:<span class="label label-danger" id="idLabel"></span></h4>
+                <button type="button" class="btn btn-default btn-m " id="idgenerator">Generate new ID</button>
+                <input type="text" class="form-control" id="usr" placeholder="Enter ID to add other users">
+                <button type="button" class="btn btn-default btn-m " id='addUser'>Add</button>
             </div>
+            <div class="col-sm-6" style="background-color:rgb(249,249,249);">
 
-            <div class="form-group">
-                <label for="lastname">Last Name:</label>
-                <input type="text" class="form-control" id="lastname" placeholder="Enter last name" name="lastname">
+                <h4>User Tracking</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Distance From You</th>
+                            <th>ID</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+
+                        </tr>
+                        <tr>
+                            <td>Mary</td>
+                            <td>Moe</td>
+
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>Dooley</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+
+
+
+
             </div>
-
-
-            <div class="form-group">
-                <label for="Profession">Profession:</label>
-                <input type="text" class="form-control" id="Profession" placeholder="Enter Profession" name="profession">
-            </div>
-
-            <div class="form-group">
-                <label for="livinglocation">Home City:</label>
-                <input type="text" class="form-control" id="livinglocation" placeholder="Enter City" name="livinglocation">
-            </div>
-
-
-
-
-
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-            </div>
-
-
-            <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="inputPhone" class="form-control" id="phone" placeholder="Enter phone number" name="phone">
-            </div>
-
-
-
-
-
-
-        </form>
-        <input type="submit" form="form1" />
-        <button type="button" id="edu">Add Education</button>
-        <button type="button" id="jobExp">Add Job Experience</button>
+        </div>
     </div>
 
 
 
-    <div class="col-sm-6">
-        <h2>Curriculum vitae</h2>
-        <form id="afd">
-            <div class="form-group">
-                <label for="Firstname2">First Name:</label>
-                <div id="Firstname2"></div>
-            </div>
 
-            <div class="form-group">
-                <label for="lastname2">Last Name:</label>
-                <div id="lastname2"></div>
-
-            </div>
+    <div class="container">
 
 
-            <div class="form-group">
-                <label for="Profession2">Profession:</label>
-                <div id="Profession2"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="livinglocation2">Home City:</label>
-                <div id="livinglocation2"></div>
-            </div>
-
-
-
-
-
-            <div class="form-group">
-                <label for="email2">Email:</label>
-                <div id="email2"></div>
-            </div>
-
-
-            <div class="form-group">
-                <label for="phone2">Phone Number:</label>
-                <div id="phone2"></div>
-            </div>
-
-
-
-        </form>
     </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdK2qvAEXNPINO476kH1L7C-WZR6Cy2jA&callback=getLocation" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="my_jquery_functions.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+
 
 
 
