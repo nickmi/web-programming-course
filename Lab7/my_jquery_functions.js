@@ -1,144 +1,155 @@
-var gpsCords;
+var currentID = 1;
+
+var id;
+
+
+function enableTxt(elem) {
+    id = $(elem).attr("id");
+
+}
+
 
 $(function() {
-    doCookiesExist();
 
-    try {
-        getLocation();
-    } catch (error) {
-        alert("error");
+
+
+
+
+    $("#edu").click(function() {
+
+        var concId = "education" + currentID;
+        var concId2 = "educationFinal" + currentID;
+
+
+
+        $("#form1").append("<div class=\"form-group\">\n" +
+            "    <label for=" + concId + ">Education</label>\n" +
+            "    <input type=\"text\" class=\"form-control\" name=" + concId + " id=" + concId + " rows=\"3\" onclick=\"enableTxt(this)\">\n" +
+            "  </div>");
+
+
+        $("#afd").append("<div class=\"form-group\">\n" +
+            "            <label for=" + concId2 + ">Education:</label>\n" +
+            "            <div id=" + concId2 + " ></div>\n" +
+            "        </div>")
+
+
+        currentID++;
+
+    });
+
+
+    $("#jobExp").click(function() {
+
+        var jober = "jobExp" + currentID;
+        var jober2 = "jobExp2" + currentID;
+
+
+        $("#form1").append("<div class=\"form-group\">\n" +
+            "    <label for=" + jober + ">Job Experience:</label>\n" +
+            "    <textarea class=\"form-control\" id=" + jober + " name=" + jober + " rows=\"3\" onclick=\"enableTxt(this)\"></textarea>\n" +
+            "  </div>");
+
+
+        $("#afd").append("<div class=\"form-group\">\n" +
+            "            <label for=" + jober2 + ">Job Experience:</label>\n" +
+            "            <div id=" + jober2 + "></div>\n" +
+            "        </div>")
+
+        currentID++;
+
+
+    });
+
+
+    $('#Firstname').on("change paste keyup", function() {
+        var k = $('#Firstname').val();
+        $('#Firstname2').text(k);
+
+    });
+
+    $('#lastname').on("change paste keyup", function() {
+        var k = $('#lastname').val();
+        $('#lastname2').text(k);
+
+    });
+
+    $('#Profession').on("change paste keyup", function() {
+        var k = $('#Profession').val();
+        $('#Profession2').text(k);
+
+    });
+
+
+    $('#livinglocation').on("change paste keyup", function() {
+        var k = $('#livinglocation').val();
+        $('#livinglocation2').text(k);
+
+    });
+
+
+    $('#email').on("change paste keyup", function() {
+        var k = $('#email').val();
+        $('#email2').text(k);
+
+    });
+
+    $('#phone').on("change paste keyup", function() {
+        var k = $('#phone').val();
+        $('#phone2').text(k);
+
+    });
+
+
+    function sendDataToPHP() {
+
+
+        $.ajax({
+            url: "db.php",
+            type: "post", //can be post or get
+            data: {
+                id: Cookies.get('name'),
+                lat: gpsCords.latitude,
+                long: gpsCords.longitude
+
+            },
+            success: function() {
+
+            }
+        });
     }
 
 
 
-});
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        alert("hetyllo");
-    }
-}
-
-function showPosition(position) {
-    gpsCords = position.coords;
-    alert(gpsCords.latitude)
-    initMap(gpsCords)
-    sendDataToPHP();
-}
+    $(document).on('click', '.form-group', function() {
 
 
-var map;
+        //Sigoura tha yparxei kaliteros tropos alla whatever
 
-function initMap(gpsCords) {
+        $('#' + id).on("change paste keyup", function() {
 
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: gpsCords.latitude, lng: gpsCords.longitude },
-        zoom: 20
-
-    });
-
-    var marker = new google.maps.Marker({
-        position: { lat: gpsCords.latitude, lng: gpsCords.longitude },
-        map: map
-    });
-}
-
-function callserver() {
-
-
-
-    $.ajax({
-        type: 'POST',
-        data: {},
-        url: 'id.php', // <=== CALL THE PHP FUNCTION HERE.
-        success: function(data) {
-
-            setId(data)
-        },
-        error: function(xhr) {
-            alert("error");
-        }
-    });
-
-}
-
-function setId(data) {
-
-    Cookies.set('name', data, { expires: 7 });
-    $("#idLabel").text(Cookies.get('name'));
-    //alert("this works" + data);
-
-}
-
-
-function doCookiesExist() {
-
-    if (Cookies.get('name') === 'undefined') {
-
-        alert("cookies dont exist");
-        callserver();
-
-    } else {
-
-        $("#idLabel").append(Cookies.get('name'));
-        alert("cookies Exist");
-
-
-    }
-}
-
-$('#idgenerator').click(function() {
-    generateNewID();
-});
-
-function generateNewID() {
-
-    Cookies.remove('name');
-    callserver();
+            var k = $('#' + id).val();
+            var part1 = id.substr(0, 6);
+            var part2 = part1 + "2" + id.substr(6, 7);
+            //alert(part2);
+            $('#' + part2).text(k);
+        });
 
 
 
 
+        $('#' + id).on("change paste keyup", function() {
 
-}
+            var k = $('#' + id).val();
+            var part1 = id.substr(0, 9);
+            var part2 = part1 + "Final" + id.substr(9, 10);
 
+            $('#' + part2).text(k);
 
-function sendDataToPHP() {
-
-
-    $.ajax({
-        url: "db.php",
-        type: "post", //can be post or get
-        data: {
-            id: Cookies.get('name'),
-            lat: gpsCords.latitude,
-            long: gpsCords.longitude
-
-        },
-        success: function() {
-
-        }
-    });
-}
-
-
-$('#addUser').click(function() {
+        });
+    })
 
 
 
 });
-
-
-function addNewUser() {
-
-
-
-
-
-
-
-
-
-}
